@@ -1,5 +1,11 @@
 .App {
+  background-color: #282c34;
   text-align: center;
+}
+.Canvas{
+
+  background-color: #000000;
+
 }
 
 .App-logo {
