@@ -1,3 +1,5 @@
+This applicaton allows one to view the current moon phase in an approximate way. The map of the moon is from Nasa's site. This is then mapped onto a three.js sphere. The applicatons also has the start of a base for authenticaion context and slowly will be updated to have better and cleaner UI as well features such as responsiveness improved auth, validation and so forth. The application uses cosinekitty's astronomy engine to compute the current phase of the moon and later will use this for eclipes and other astronomy related react fun. This application is in its very intial stages and has almost no working views other than /moonPhases. In addtion conviences such the navbar in larger browsers doesnt show the pull down yet, login doenst work and so forth.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
