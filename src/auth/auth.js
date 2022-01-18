@@ -1,12 +1,12 @@
-import { useState, useContext, createContext } from "react";
+import React, { useContext, useState, createContext } from "react";
 
 export const AuthContext = createContext({
   signin: () => {},
   signout: () => {},
-  user: "",
   loggedIn: false,
-  userName: "",
+  user: "",
 });
+
 export const useAuth = () => {
   return useContext(AuthContext);
 };
@@ -16,29 +16,26 @@ export const AuthProvider = ({ children }) => {
     loggedIn: false,
     user: "",
   };
+
+  const [loggedIn, setLoggedIn] = useState(initialState.loggedIn);
   const [user, setUser] = useState(initialState.user);
 
-  const signin = (newUser, callback) => {
-    return fakeAuthProvider.signin(() => {
-      setUser(newUser);
-      callback();
-    });
+  const handleLogin = (email, password) => {
+    setLoggedIn(true);
+    setUser(email);
   };
 
-  const signout = (callback) => {
-    return fakeAuthProvider.signout(() => {
-      setUser(null);
-      callback();
-    });
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUser("");
   };
 
   const contextValues = {
+    signin: handleLogin,
+    signout: handleLogout,
+    loggedIn,
     user,
-    signin: signin,
-    signout: signout,
   };
-
-  // let value = { user, signin, signout };
 
   return (
     <AuthContext.Provider value={contextValues}>
@@ -46,6 +43,7 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
 const fakeAuthProvider = {
   isAuthenticated: false,
   signin(callback) {

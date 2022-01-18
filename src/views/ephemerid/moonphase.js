@@ -37,6 +37,7 @@ const SunLight = () => {
       // "2022-01-31 17:20:16"
       const date = new Date();
       phase = Astronomy.MoonPhase(date);
+      console.log("Current date: ", date, "cureent phase: ", phase);
       if (phase <= 180) {
         let percentage = phase / 180;
         let posistionV = percentage * 10;
@@ -75,7 +76,6 @@ const SunLight = () => {
 export default function MoonPhaseAngle() {
   return (
     <div>
-      hello Aliens!
       <Canvas
         className="Canvas"
         style={{ height: window.innerHeight, width: window.innerWidth }}
