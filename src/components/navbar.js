@@ -67,7 +67,6 @@ const ResponsiveAppBar = (props) => {
     return <></>;
   };
 
-  console.log("is logged In", auth.user);
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 

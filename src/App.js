@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Routes, Route, useLocation, Navigate, Outlet } from "react-router-dom";
 import ResponsiveAppBar from "./components/navbar";
 import MoonPhaseAngle from "./views/ephemerid/moonphase";
 import { AuthProvider, useAuth } from "./auth/auth";
