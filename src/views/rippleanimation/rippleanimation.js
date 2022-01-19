@@ -6,6 +6,9 @@ import circleImg from "../../images/circle.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 extend({ OrbitControls });
 
+//based on code by Alvan Caleb Arulandu
+//3D ripple animation on YouTube
+
 function Points() {
   const imgTex = useLoader(THREE.TextureLoader, circleImg);
   const bufferRef = useRef();
