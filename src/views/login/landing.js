@@ -1,5 +1,5 @@
 import "./landing.css";
-import image1 from "../../images/space1.jpg";
+import image1 from "../../images/space5.jpg";
 
 const Landing = () => {
   return (

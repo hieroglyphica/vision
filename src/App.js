@@ -5,6 +5,7 @@ import MoonPhaseAngle from "./views/ephemerid/moonphase";
 import { AuthProvider, useAuth } from "./auth/auth";
 import LoginPage from "./views/login/login";
 import Landing from "./views/login/landing";
+import PhoneAnimation from "./views/phoneanimation/talkingonphone";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -21,6 +22,7 @@ function Layout() {
     // { name: "Lunar Eclipses", link: "lunarEclipses" },
     // { name: "Moon Quarters", link: "moonQuarter" },
     { name: "Moon Phase", link: "moonPhase" },
+    { name: "Animation", link: "/phoneAnimation" },
     { name: "Home", link: "/" },
   ];
   const settings = [
@@ -47,6 +49,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <MoonPhaseAngle />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/phoneAnimation"
+            element={
+              <RequireAuth>
+                <PhoneAnimation />
               </RequireAuth>
             }
           />
