@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from "./auth/auth";
 import LoginPage from "./views/login/login";
 import Landing from "./views/login/landing";
 import PhoneAnimation from "./views/phoneanimation/talkingonphone";
+import ThreeFabric from "./views/rippleanimation/rippleanimation";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -21,9 +22,10 @@ function Layout() {
   const pages = [
     // { name: "Lunar Eclipses", link: "lunarEclipses" },
     // { name: "Moon Quarters", link: "moonQuarter" },
+    { name: "Home", link: "/" },
     { name: "Moon Phase", link: "moonPhase" },
     { name: "Animation", link: "/phoneAnimation" },
-    { name: "Home", link: "/" },
+    { name: "Fabric", link: "/rippleAnimation" },
   ];
   const settings = [
     { name: "Account", link: "/account" },
@@ -57,6 +59,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <PhoneAnimation />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/rippleAnimation"
+            element={
+              <RequireAuth>
+                <ThreeFabric />
               </RequireAuth>
             }
           />
