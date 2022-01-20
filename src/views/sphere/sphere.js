@@ -18,8 +18,6 @@ function Points() {
     "purple",
   ];
   let random = Math.random(0, 5).toFixed(0);
-  console.log("random", random);
-  let color = new THREE.Color(colorArray[random]);
 
   let t = 0;
   let f = 0.002;
