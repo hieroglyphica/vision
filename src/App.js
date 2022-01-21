@@ -9,6 +9,7 @@ import PhoneAnimation from "./views/phoneanimation/talkingonphone";
 import ThreeFabric from "./views/rippleanimation/rippleanimation";
 import ThreeSphere from "./views/sphere/sphere";
 import Geometry from "./views/geometry/geometry";
+import BubbleAnimation from "./views/bubbleanimation/bubble";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -30,6 +31,7 @@ function Layout() {
     { name: "Fabric", link: "/rippleAnimation" },
     { name: "Sphere", link: "/sphereAnimation" },
     { name: "Geometry", link: "/geometryPhysics" },
+    { name: "Bubble", link: "/bubbleAnimation" },
   ];
   const settings = [
     { name: "Account", link: "/account" },
@@ -87,6 +89,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <Geometry />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/bubbleAnimation"
+            element={
+              <RequireAuth>
+                <BubbleAnimation />
               </RequireAuth>
             }
           />
