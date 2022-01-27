@@ -23,28 +23,33 @@ const MoonMeshPhase = () => {
   );
 };
 function AmbientLight({}) {
-  return <ambientLight color={"gray"} intensity={0.1} />;
+  return <ambientLight color={"gray"} intensity={0.2} />;
 }
 const SunLight = () => {
-  let phase;
-
   const [lightX, setLightX] = useState(-7);
   const [lightZ, setLightZ] = useState(-15);
-  const [intensity, setIntesity] = useState(0.7);
+  const [intensity, setIntesity] = useState(0.6);
 
   useEffect(() => {
     const interval = setInterval(() => {
       // "2022-01-31 17:20:16"
       const date = new Date();
-      phase = Astronomy.MoonPhase(date);
-      if (phase <= 180) {
-        let percentage = phase / 180;
-        let posistionV = percentage * 10;
-        let position = -5 + posistionV;
+      let phase = Astronomy.MoonPhase(date);
+      let illumination = Astronomy.Illumination("Moon", date);
 
-        if (phase > 90) {
-          posistionV = percentage * 34;
-          position = -17 + posistionV;
+      if (phase <= 180) {
+        let percentage = illumination.phase_fraction;
+        let posistionV = percentage * 9;
+        let position = -8.5 + posistionV;
+
+        if (phase >= 135) {
+          posistionV = percentage * 55;
+          position = -37 + posistionV;
+        }
+
+        if (phase > 90 && phase < 135) {
+          posistionV = percentage * 7;
+          position = 0 + posistionV;
         }
 
         setLightX(7);
@@ -52,9 +57,14 @@ const SunLight = () => {
       }
       if (phase > 180) {
         setLightX(-7);
-        let percentage = (phase - 180) / 180;
+        let percentage = illumination.phase_fraction;
         let positionV = percentage * 32;
-        let position = 16 - positionV;
+        let position = -16 + positionV;
+
+        if (phase > 270) {
+          positionV = percentage * 10;
+          position = -5 + positionV;
+        }
 
         setLightZ(position);
       }
@@ -63,7 +73,7 @@ const SunLight = () => {
   }, []);
 
   return (
-    <directionalLight
+    <pointLight
       color={"white"}
       intensity={intensity}
       position={[lightX, 0, lightZ]}

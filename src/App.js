@@ -10,6 +10,7 @@ import ThreeFabric from "./views/rippleanimation/rippleanimation";
 import ThreeSphere from "./views/sphere/sphere";
 import Geometry from "./views/geometry/geometry";
 import BubbleAnimation from "./views/bubbleanimation/bubble";
+import GeoMap from "./views/geomaps/streetmap";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -32,6 +33,7 @@ function Layout() {
     { name: "Sphere", link: "/sphereAnimation" },
     { name: "Geometry", link: "/geometryPhysics" },
     { name: "Bubble", link: "/bubbleAnimation" },
+    { name: "Street Map", link: "/geoMap" },
   ];
   const settings = [
     { name: "Account", link: "/account" },
@@ -97,6 +99,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <BubbleAnimation />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/geoMap"
+            element={
+              <RequireAuth>
+                <GeoMap />
               </RequireAuth>
             }
           />
