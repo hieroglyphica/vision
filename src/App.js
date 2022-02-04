@@ -11,6 +11,7 @@ import ThreeSphere from "./views/sphere/sphere";
 import Geometry from "./views/geometry/geometry";
 import BubbleAnimation from "./views/bubbleanimation/bubble";
 import GeoMap from "./views/geomaps/streetmap";
+import ExoPlanetData from "./views/exoplanets/planets";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -34,6 +35,7 @@ function Layout() {
     { name: "Geometry", link: "/geometryPhysics" },
     { name: "Bubble", link: "/bubbleAnimation" },
     { name: "Street Map", link: "/geoMap" },
+    { name: "Exo Planets", link: "/exoPlanets" },
   ];
   const settings = [
     { name: "Account", link: "/account" },
@@ -107,6 +109,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <GeoMap />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/exoPlanets"
+            element={
+              <RequireAuth>
+                <ExoPlanetData />
               </RequireAuth>
             }
           />
