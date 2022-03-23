@@ -1,6 +1,7 @@
-import { textAlign } from "@mui/system";
 import { useEffect } from "react";
 import "./xorbitwise.css";
+
+//this implementation is based off of Code Workshop YouTube channel video on XOR BitWise
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
