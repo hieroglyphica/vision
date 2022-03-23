@@ -294,24 +294,28 @@ const CanvasData = () => {
       <Text
         color="white"
         fontSize={0.1}
-        text={phaseAngle.toFixed(3)}
+        text={"Current Phase Angle: " + phaseAngle.toFixed(3)}
         position={[-1.5, 0, 2]}
       />
       <Text
         color="white"
         fontSize={0.1}
-        text={(illumination * 100).toFixed(2) + "%"}
+        text={
+          "Current Illumination Percentage: " +
+          (illumination * 100).toFixed(2) +
+          "%"
+        }
         position={[-1.5, 1, 2]}
       />
       {/* prettier-ignore */}
-      <Text
+      {/* <Text
       color="white"
       fontSize={.1}
        position={[2.5, 0, 2]}
        maxWidth={2}
  
        text={"  This application uses an 8k image from NASA's Scientific Visualization Studio at https://svs.gsfc.nasa.gov/4720. The future version of this will attempt using a displacement map thereby giving the moon a more three dimensional surface texture and terrain. Three.js fiber and React are used to map this image onto a sphere. When the page first loads the moon shows in its approximate illumination. The illumination phase angle and other astronomicalcalculations are done using cosinekittys astronomy engine which is based on a truncated VSOP87 or the semi-analytic planetary theory VSOP (French: Variations Séculaires des Orbites Planétaires) and claims accuracy within 1 arcminute of results from NOVAS"}
-    />
+    /> */}
     </group>
   );
 };

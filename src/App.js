@@ -12,6 +12,7 @@ import Geometry from "./views/geometry/geometry";
 import BubbleAnimation from "./views/bubbleanimation/bubble";
 import GeoMap from "./views/geomaps/streetmap";
 import ExoPlanetData from "./views/exoplanets/planets";
+import XorBitwise from "./views/xorbitwise/xorbitwise";
 
 const RequireAuth = ({ children }) => {
   let auth = useAuth();
@@ -29,13 +30,14 @@ const Layout = () => {
     // { name: "Moon Quarters", link: "moonQuarter" },
     { name: "Home", link: "/" },
     { name: "Moon Phase", link: "moonPhase" },
-    { name: "Animation", link: "/phoneAnimation" },
-    { name: "Fabric", link: "/rippleAnimation" },
     { name: "Sphere", link: "/sphereAnimation" },
-    { name: "Geometry", link: "/geometryPhysics" },
-    { name: "Bubble", link: "/bubbleAnimation" },
     { name: "Street Map", link: "/geoMap" },
-    { name: "Exo Planets", link: "/exoPlanets" },
+    { name: "Fabric", link: "/rippleAnimation" },
+    { name: "XOR Bitwise", link: "/xorbitwise" },
+    // { name: "Animation", link: "/phoneAnimation" },
+    // { name: "Geometry", link: "/geometryPhysics" },
+    // { name: "Bubble", link: "/bubbleAnimation" },
+    // { name: "Exo Planets", link: "/exoPlanets" },
   ];
   const settings = [
     { name: "Account", link: "/account" },
@@ -117,6 +119,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <ExoPlanetData />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/xorbitwise"
+            element={
+              <RequireAuth>
+                <XorBitwise />
               </RequireAuth>
             }
           />
