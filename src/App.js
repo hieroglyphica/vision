@@ -23,7 +23,7 @@ const RequireAuth = ({ children }) => {
 
   return children;
 };
-function Layout() {
+const Layout = () => {
   const pages = [
     // { name: "Lunar Eclipses", link: "lunarEclipses" },
     // { name: "Moon Quarters", link: "moonQuarter" },
@@ -47,7 +47,7 @@ function Layout() {
       <Outlet />
     </div>
   );
-}
+};
 
 const App = () => {
   return (
