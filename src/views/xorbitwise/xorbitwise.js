@@ -41,7 +41,9 @@ const XorBitwise = () => {
 
     const interval = setInterval(() => {
       let modulus = getRandomInt(3, 17);
+      //filter out any blank screens or other patterns
       let filteredModulus = [4, 8, 16];
+
       if (filteredModulus.includes(modulus)) {
         modulus = getRandomInt(3, 17);
         draw(5);
